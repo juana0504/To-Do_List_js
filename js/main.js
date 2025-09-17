@@ -2,8 +2,8 @@
 
 const input =document.getElementById("to-do-input");
 const addbtn = document.getElementById("add-btn");
-const contToDoList = document.getElementById("cont-to-do-list");
-const contCompletedList = document.getElementById("cont-completed");
+const ToDoList = document.getElementById("cont-to-do-list");
+const CompletedList = document.getElementById("cont-completed");
 
 //Creamos la función que nos permite crear una nueva tarea 
 //Toda etiqueta que vamos a crear es apartir de la maqueta html pre-existente
@@ -33,3 +33,17 @@ function createToDoItem(textoItem){
     //Utilizamos el return para retornar o dar respuesta el elemento creado, ya que lo usaremos en otra funcion mas adelante
     return item;
 } 
+
+//Detectamos el evento click sobre el boton agregar o mas con un evento de escucha o listen
+//para apartir de este elemento se agregue la tarea dentro del contenedo cont-to-do-list
+
+addbtn.addEventListener('click', ()=>{
+    const textoItem=input.value.trim();
+    if (textoItem=="") {
+        alert("No se puede crear una tarea vacia")
+    } else {
+        const newItem = createToDoItem(textoItem);
+        ToDoList.appendChild(newItem);
+        input.value="";
+    }
+});
