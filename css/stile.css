@@ -27,7 +27,7 @@ body {
 
 h1 {
   text-align: center;
-  color: #200131;
+  color: #300249;
   font-size: 45px;
   padding: 20px 0;
 }
@@ -35,7 +35,7 @@ h1 {
 h2 {
   padding: 10px 0;
   font-size: 20px;
-  color: #200131;
+  color: #300249;
 }
 
 hr{
@@ -54,7 +54,7 @@ form input {
   border-radius: 8px;
   border: none;
   outline: none;
-  background: #ce82dd;
+  background: #e49ef1;
   color: #fff;
 }
 
