@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #121212;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+#global-content {
+  background: #423e3e;
+  padding: 25px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 8px 15px rgba(123, 58, 129, 0.486);
+}
+
+h1 {
+  text-align: center;
+  color: #200131;
+  font-size: 45px;
+  padding: 20px 0;
+}
+
+h2 {
+  padding: 10px 0;
+  font-size: 20px;
+  color: #200131;
+}
+
+hr{
+    margin: 30px 0;
+}
+
+/* Estilo del form */
+form {
+  display: flex;
+  gap: 10px;
+}
+
+form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #ce82dd;
+  color: #fff;
+}
+
+form button {
+  padding: 10px 15px;
+  border: none;
+  background: #ce82dd;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #aa1be2;
+}
+
+/* Lista de tareas */
+#cont-to-do-list{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-to-do {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ce82dd;
+  padding: 10px 15px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.item-to-do:hover {
+  transform: translateX(5px);
+}
+
+.item-to-do input[type="checkbox"] {
+  accent-color: #ea00ff;
+  transform: scale(1.2);
+}
+
+.item-to-do button{
+    padding: 10px 15px;
+  border: none;
+  background: #ce82dd;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.item-to-do button:hover{
+    background: #aa1be2;
+}
+
+.item-to-do p {
+  flex: 1;
+  margin: 0;
+  font-size: 15px;
+  color: black;
+}
