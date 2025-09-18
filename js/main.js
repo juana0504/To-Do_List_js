@@ -1,41 +1,45 @@
-//Cree las constantes globales para los elementos principales 
+// Creamos las constantes globales para los elementos principales 
 
 const input =document.getElementById("to-do-input");
 const addbtn = document.getElementById("add-btn");
 const ToDoList = document.getElementById("cont-to-do-list");
 const CompletedList = document.getElementById("cont-completed");
 
-//Creamos la función que nos permite crear una nueva tarea 
-//Toda etiqueta que vamos a crear es apartir de la maqueta html pre-existente
+// Creamos la función que nos permite crear una nueva tarea 
+// Todas las etiquetas que vamos a crear parten de la maqueta HTML preexistente
 
+//Esta funcion crea la estructura del HTML y la deja en un limbo, aun no la inserta en la pagina 
 function createToDoItem(textoItem){
-    //Creamos el nodo o elemento padre
+    // Creamos el nodo o elemento padre
     const item =document.createElement("div");
     item.classList.add("item-to-do");
 
-    //creamos el nodo o elemento hijo y le agregamo el nodo checkbox
+    // Creamos el nodo o elemento hijo y le agregamos el nodo checkbox
     const checkbox=document.createElement("input");
     checkbox.type="checkbox";
 
-    //Creamos el siguiente nodo hijo parrafo, a este parrafo le asigno el valor del argumento de la función es decir lo que escribe el usuario en el campo
+    // Creamos el siguiente nodo hijo (párrafo). 
+    // A este párrafo le asignamos el valor del argumento de la función, 
+    // es decir, lo que escribe el usuario en el campo
     const p =document.createElement("p");
     p.textContent=textoItem;
 
-    //Creamos el ultimo nodo hijo, el boton de eliminar
+    // Creamos el último nodo hijo: el botón de eliminar
     const deleteBtn=document.createElement("button");
     deleteBtn.textContent="x";
 
-    //Ensablamos dentro del nodo padre sus nodos hijos, es decir la estructura de la tarea 
+    // Ensamblamos dentro del nodo padre sus nodos hijos, es decir, la estructura de la tarea
     item.appendChild(checkbox);
     item.appendChild(p);
     item.appendChild(deleteBtn);
 
-    //Utilizamos el return para retornar o dar respuesta el elemento creado, ya que lo usaremos en otra funcion mas adelante
+    // Utilizamos return para devolver el elemento creado, ya que lo usaremos en otra función más adelante
     return item;
-} 
+}
 
-//Detectamos el evento click sobre el boton agregar o mas con un evento de escucha o listen
-//para apartir de este elemento se agregue la tarea dentro del contenedo cont-to-do-list
+
+// Detectamos el evento click sobre el botón "Agregar" con un event listener
+// A partir de este evento se agregará la tarea dentro del contenedor cont-to-do-list
 
 addbtn.addEventListener('click', ()=>{
     const textoItem=input.value.trim();
@@ -45,5 +49,29 @@ addbtn.addEventListener('click', ()=>{
         const newItem = createToDoItem(textoItem);
         ToDoList.appendChild(newItem);
         input.value="";
+        eventsToItem(newItem);
     }
 });
+
+//La siguiente función nos permitira agregar el funcionamiento principal sobre las tareas es decir marcar la tarea como completada o en dado caso eliminarla
+
+function eventsToItem(item){
+    //Utilizamos querySelector para capturar el input y el button que estan dentro del item
+    const checkbox = item.querySelector("input");
+    const deleteBtn = item.querySelector("button");
+
+    //Completar la tarea
+
+    checkbox.addEventListener('change',()=>{
+        if (checkbox.checked) {
+            CompletedList.appendChild(item);
+        }
+        else{
+            ToDoList.appendChild(item);
+        }
+    });
+
+    deleteBtn.addEventListener('click', ()=>{
+        item.remove();
+    });
+}
