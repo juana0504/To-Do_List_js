@@ -77,6 +77,7 @@ form input {
   outline: none;
   background: #ffffff;
   color: #000000;
+  padding: 15px 15px 15px 20px;
 }
 
 form button {
@@ -101,6 +102,9 @@ form button:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+#cont-to-do-list p{
+  word-break: break-word;
 }
 
 .item-to-do {
@@ -149,4 +153,5 @@ form button:hover {
   text-decoration: line-through;
   text-decoration-thickness: 3px;
   text-decoration-color: rgb(255, 255, 255);
+  word-break: break-word;
 }
