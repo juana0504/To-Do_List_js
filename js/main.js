@@ -53,6 +53,15 @@ addbtn.addEventListener('click', ()=>{
     }
 });
 
+// Permitir agregar con Enter
+input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault(); // evita que se envíe un form si lo hubiera
+        addbtn.click();     // simula el click en el botón "+"
+    }
+});
+
+
 //La siguiente función nos permitira agregar el funcionamiento principal sobre las tareas es decir marcar la tarea como completada o en dado caso eliminarla
 
 function eventsToItem(item){
